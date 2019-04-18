@@ -1,9 +1,13 @@
 package com.pmapp.PmApp;
 
+import static org.junit.Assert.assertNotNull;
+
 import java.util.List;
+import java.util.Optional;
 
 import javax.swing.text.StyledEditorKit.ItalicAction;
 
+import com.pmapp.PmApp.business.InterfaceUserImpl;
 import com.pmapp.PmApp.entities.User;
 
 import org.junit.Before;
@@ -20,7 +24,7 @@ import com.pmapp.PmApp.repositories.UserRepository;
 public class TestSinifi {
 	
 	@Autowired
-	UserRepository userRepository;
+	private InterfaceUserImpl interfaceFilmService;
 	
 	@Before
 	public void kullaniciEkle() {
@@ -29,15 +33,19 @@ public class TestSinifi {
 		kullanici.setFirstName("Can");
 		kullanici.setLastName("Yard");
 		kullanici.setPassword("123456");
-		userRepository.save(kullanici);
+		interfaceFilmService.kayit(kullanici);
 		
 		
 	}
 	
 	
+	
+	
 	@Test
-	public void kullaniciGetir() {
-		Iterable<User> kullanicilar=userRepository.findAll();
+	public void kullanıcınınKendisi() {
+		Optional<User> user=interfaceFilmService.kullanici(1L);
+		assertNotNull(user);
+		
 	}
 
 }
