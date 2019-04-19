@@ -33,7 +33,6 @@ public class InterfaceUserImpl implements InterfaceUser {
 	@Transactional
 	public Optional<User> kullanici(Long id) {
 		Optional<User> user=userRepository.findById(id);
-		
 		return user;
 	}
 
@@ -41,22 +40,22 @@ public class InterfaceUserImpl implements InterfaceUser {
 	@Override
 	@Transactional
 	public List<User> kullanicilar() {
-		return null;
+		List<User> users=(List<User>) userRepository.findAll();
+		return users;
 	}
 
 
 	@Override
 	@Transactional
 	public void delete(User user) {
-		// TODO Auto-generated method stub
-		
+		userRepository.delete(user);
 	}
 
 
 	@Override
 	@Transactional
 	public void guncelle(User user) {
-		// TODO Auto-generated method stub
+		userRepository.save(user);
 		
 	}
 

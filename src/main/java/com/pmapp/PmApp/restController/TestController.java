@@ -50,5 +50,9 @@ public class TestController {
 		interfaceFilmService.guncelle(user);
 
 	}
+	@PostMapping("/mesajGonder")
+	public void mesajGonder(@RequestBody User user) {
+		
+	}
 
 }
