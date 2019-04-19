@@ -15,5 +15,6 @@ public interface InterfaceUser {
 	void delete(User user);
 
 	void guncelle(User user);
+	
 
 }
