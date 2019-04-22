@@ -1,18 +1,11 @@
 package com.pmapp.PmApp.entities;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
 
 @Entity
-public class Message {
+public class Message extends BaseEntity {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+
 	private Long toUser;
 	private Long fromUser;
 	private String text;
@@ -28,19 +21,13 @@ public class Message {
 	}
 
 	public Message(Long id, Long toUser, String text, Long fromUser) {
-		this.id = id;
+		this.setId(id);
 		this.toUser = toUser;
 		this.text = text;
 		this.fromUser = fromUser;
 	}
 
-	public Long getId() {
-		return id;
-	}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
 
 	public Long getToUser() {
 		return toUser;
